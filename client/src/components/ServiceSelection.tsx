@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
@@ -16,28 +16,12 @@ const ServiceSelection = ({ onServiceSelect, onContinue }: ServiceSelectionProps
   const [showSubcategories, setShowSubcategories] = useState(false);
   
   // Fetch service categories
-  const categoriesQuery = useQuery({
-    queryKey: ['/api/service-categories'],
-    onError: (error) => {
-      toast({
-        variant: 'destructive',
-        title: 'Error',
-        description: `Failed to load service categories: ${error instanceof Error ? error.message : 'Unknown error'}`,
-      });
-    }
-  });
+  const categoriesQuery = useQuery({ queryKey: ['/api/service-categories'] });
   
   // Fetch services by category
   const servicesQuery = useQuery({
     queryKey: ['/api/services/category', selectedCategory?.id],
-    enabled: !!selectedCategory,
-    onError: (error) => {
-      toast({
-        variant: 'destructive',
-        title: 'Error',
-        description: `Failed to load services: ${error instanceof Error ? error.message : 'Unknown error'}`,
-      });
-    }
+    enabled: !!selectedCategory
   });
   
   const handleCategorySelect = (category: ServiceCategory) => {
@@ -71,7 +55,7 @@ const ServiceSelection = ({ onServiceSelect, onContinue }: ServiceSelectionProps
       <h2 className="font-serif text-2xl text-[#7D4F50] mb-6 text-center">Escolha o Serviço</h2>
       
       {!showSubcategories && (
-        <div className="grid grid-cols-2 gap-6 mb-10">
+        <div className="grid grid-cols-2 gap-3 mb-10">
           {categoriesQuery.isLoading ? (
             <>
               <div className="aspect-square bg-[#E8D4C4]/20 rounded-xl animate-pulse" />
@@ -81,7 +65,7 @@ const ServiceSelection = ({ onServiceSelect, onContinue }: ServiceSelectionProps
             categories.map((category) => (
               <div 
                 key={category.id} 
-                className="service-box bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-transform hover:scale-[1.03]"
+                className="service-box bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-transform hover:scale-[1.03] aspect-square"
                 onClick={() => handleCategorySelect(category)}
               >
                 <div className="h-full flex flex-col">
@@ -110,9 +94,9 @@ const ServiceSelection = ({ onServiceSelect, onContinue }: ServiceSelectionProps
             Selecione a Opção de {selectedCategory?.name}
           </h3>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-6">
+          <div className="grid grid-cols-2 gap-3 mb-6">
             {servicesQuery.isLoading ? (
-              Array(5).fill(0).map((_, i) => (
+              Array(10).fill(0).map((_, i) => (
                 <div key={i} className="aspect-square bg-[#E8D4C4]/20 rounded-lg animate-pulse" />
               ))
             ) : services.length > 0 ? (

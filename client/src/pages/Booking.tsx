@@ -45,12 +45,12 @@ const Booking = () => {
           </svg>
           Voltar
         </button>
-        <div className="text-2xl font-serif text-[#7D4F50] font-bold">NailArtistry</div>
-        <div className="w-24"></div> {/* For balance */}
+        <div className="flex-1"></div>
+        <div className="w-6"></div> {/* For balance */}
       </header>
       
       {/* Booking Steps */}
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <div className="flex flex-col items-center px-4 py-6 mx-auto max-w-md">
         {/* Progress indicator */}
         <div className="flex items-center justify-between mb-12 px-4">
           {/* Step 1 */}

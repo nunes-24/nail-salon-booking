@@ -17,6 +17,7 @@ const DateTimeSelection = ({ onDateTimeSelect, onContinue, onBack }: DateTimeSel
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [calendarDays, setCalendarDays] = useState<ReturnType<typeof getCalendarDays>>([]);
   const [availableTimes, setAvailableTimes] = useState<string[]>([]);
+  const [showMonthSelector, setShowMonthSelector] = useState(false);
   
   // Initialize calendar days
   useEffect(() => {
@@ -58,6 +59,15 @@ const DateTimeSelection = ({ onDateTimeSelect, onContinue, onBack }: DateTimeSel
     } else {
       setCurrentMonth(currentMonth + 1);
     }
+  };
+  
+  const toggleMonthSelector = () => {
+    setShowMonthSelector(!showMonthSelector);
+  };
+  
+  const handleMonthSelect = (month: number) => {
+    setCurrentMonth(month);
+    setShowMonthSelector(false);
   };
   
   const handleDateSelect = (day: number, disabled: boolean) => {
@@ -108,7 +118,37 @@ const DateTimeSelection = ({ onDateTimeSelect, onContinue, onBack }: DateTimeSel
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-          <h3 className="text-lg font-medium">{ptMonths[currentMonth]} {currentYear}</h3>
+          <div className="flex flex-col items-center">
+            <h3 
+              className="text-lg font-medium cursor-pointer hover:text-[#7D4F50] flex items-center"
+              onClick={toggleMonthSelector}
+            >
+              {ptMonths[currentMonth]} {currentYear}
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                className={`h-4 w-4 ml-1 transition-transform ${showMonthSelector ? 'rotate-180' : ''}`} 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </h3>
+            
+            {showMonthSelector && (
+              <div className="mt-2 grid grid-cols-3 gap-2 bg-white p-2 rounded-lg shadow-md">
+                {ptMonths.map((month, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleMonthSelect(index)}
+                    className={`text-xs p-1 rounded ${currentMonth === index ? 'bg-[#7D4F50] text-white' : 'hover:bg-[#E8D4C4]/50'}`}
+                  >
+                    {month.slice(0, 3)}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
           <button 
             onClick={handleNextMonth}
             className="text-[#7D4F50] hover:text-[#7D4F50]/80"
