@@ -35,7 +35,14 @@ const Sidebar = ({ activeSection, onSectionChange, isOpen, onToggle }: SidebarPr
       
       <nav className="space-y-1">
         <button 
-          onClick={() => { onSectionChange('clients'); if (!isOpen) onToggle(); }}
+          onClick={() => { 
+            onSectionChange('clients'); 
+            if (!isOpen) {
+              onToggle(); // Open if closed
+            } else {
+              onToggle(); // Close after selecting
+            }
+          }}
           className={`sidebar-item flex items-center w-full ${isOpen ? 'px-6 text-left' : 'justify-center px-3'} py-3 ${activeSection === 'clients' ? 'bg-[#E8D4C4] text-[#7D4F50]' : 'hover:bg-[#E8D4C4] hover:text-[#7D4F50]'} transition-all`}
           title={!isOpen ? "Clientes" : ""}
         >
@@ -46,7 +53,14 @@ const Sidebar = ({ activeSection, onSectionChange, isOpen, onToggle }: SidebarPr
         </button>
         
         <button 
-          onClick={() => { onSectionChange('appointments'); if (!isOpen) onToggle(); }}
+          onClick={() => { 
+            onSectionChange('appointments'); 
+            if (!isOpen) {
+              onToggle(); // Open if closed
+            } else {
+              onToggle(); // Close after selecting
+            }
+          }}
           className={`sidebar-item flex items-center w-full ${isOpen ? 'px-6 text-left' : 'justify-center px-3'} py-3 ${activeSection === 'appointments' ? 'bg-[#E8D4C4] text-[#7D4F50]' : 'hover:bg-[#E8D4C4] hover:text-[#7D4F50]'} transition-all`}
           title={!isOpen ? "Agendamentos" : ""}
         >
@@ -57,7 +71,14 @@ const Sidebar = ({ activeSection, onSectionChange, isOpen, onToggle }: SidebarPr
         </button>
         
         <button 
-          onClick={() => { onSectionChange('schedules'); if (!isOpen) onToggle(); }}
+          onClick={() => { 
+            onSectionChange('schedules'); 
+            if (!isOpen) {
+              onToggle(); // Open if closed
+            } else {
+              onToggle(); // Close after selecting
+            }
+          }}
           className={`sidebar-item flex items-center w-full ${isOpen ? 'px-6 text-left' : 'justify-center px-3'} py-3 ${activeSection === 'schedules' ? 'bg-[#E8D4C4] text-[#7D4F50]' : 'hover:bg-[#E8D4C4] hover:text-[#7D4F50]'} transition-all`}
           title={!isOpen ? "Horários" : ""}
         >
@@ -68,7 +89,14 @@ const Sidebar = ({ activeSection, onSectionChange, isOpen, onToggle }: SidebarPr
         </button>
         
         <button 
-          onClick={() => { onSectionChange('billing'); if (!isOpen) onToggle(); }}
+          onClick={() => { 
+            onSectionChange('billing'); 
+            if (!isOpen) {
+              onToggle(); // Open if closed
+            } else {
+              onToggle(); // Close after selecting
+            }
+          }}
           className={`sidebar-item flex items-center w-full ${isOpen ? 'px-6 text-left' : 'justify-center px-3'} py-3 ${activeSection === 'billing' ? 'bg-[#E8D4C4] text-[#7D4F50]' : 'hover:bg-[#E8D4C4] hover:text-[#7D4F50]'} transition-all`}
           title={!isOpen ? "Faturamento" : ""}
         >
@@ -79,7 +107,14 @@ const Sidebar = ({ activeSection, onSectionChange, isOpen, onToggle }: SidebarPr
         </button>
         
         <button 
-          onClick={() => { onSectionChange('services'); if (!isOpen) onToggle(); }}
+          onClick={() => { 
+            onSectionChange('services'); 
+            if (!isOpen) {
+              onToggle(); // Open if closed
+            } else {
+              onToggle(); // Close after selecting
+            }
+          }}
           className={`sidebar-item flex items-center w-full ${isOpen ? 'px-6 text-left' : 'justify-center px-3'} py-3 ${activeSection === 'services' ? 'bg-[#E8D4C4] text-[#7D4F50]' : 'hover:bg-[#E8D4C4] hover:text-[#7D4F50]'} transition-all`}
           title={!isOpen ? "Serviços" : ""}
         >
@@ -90,7 +125,14 @@ const Sidebar = ({ activeSection, onSectionChange, isOpen, onToggle }: SidebarPr
         </button>
         
         <button 
-          onClick={() => { onSectionChange('messages'); if (!isOpen) onToggle(); }}
+          onClick={() => { 
+            onSectionChange('messages'); 
+            if (!isOpen) {
+              onToggle(); // Open if closed
+            } else {
+              onToggle(); // Close after selecting
+            }
+          }}
           className={`sidebar-item flex items-center w-full ${isOpen ? 'px-6 text-left' : 'justify-center px-3'} py-3 ${activeSection === 'messages' ? 'bg-[#E8D4C4] text-[#7D4F50]' : 'hover:bg-[#E8D4C4] hover:text-[#7D4F50]'} transition-all`}
           title={!isOpen ? "Mensagens" : ""}
         >
@@ -101,7 +143,14 @@ const Sidebar = ({ activeSection, onSectionChange, isOpen, onToggle }: SidebarPr
         </button>
         
         <button 
-          onClick={() => { onSectionChange('config'); if (!isOpen) onToggle(); }}
+          onClick={() => { 
+            onSectionChange('config');
+            if (!isOpen) {
+              onToggle(); // Open if closed
+            } else {
+              onToggle(); // Close after selecting
+            }
+          }}
           className={`sidebar-item flex items-center w-full ${isOpen ? 'px-6 text-left' : 'justify-center px-3'} py-3 ${activeSection === 'config' ? 'bg-[#E8D4C4] text-[#7D4F50]' : 'hover:bg-[#E8D4C4] hover:text-[#7D4F50]'} transition-all`}
           title={!isOpen ? "Configurações" : ""}
         >

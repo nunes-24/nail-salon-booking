@@ -101,13 +101,13 @@ const AppointmentConfirmation = ({
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         </div>
-        <h2 className="font-serif text-2xl text-[#7D4F50] mb-4">Agendamento Confirmado!</h2>
+        <h2 className="text-2xl text-[#7D4F50] mb-4">Agendamento Confirmado!</h2>
         <p className="mb-8 max-w-md mx-auto">
           Seu agendamento foi confirmado com sucesso. Você receberá um email de confirmação em breve com os detalhes da sua marcação.
         </p>
         <Button 
           onClick={handleReturnToMain}
-          className="bg-[#7D4F50] text-white py-3 px-8 rounded-lg font-medium hover:bg-[#7D4F50]/90 transition shadow-md"
+          className="bg-[#7D4F50] text-white py-3 px-8 rounded-lg hover:bg-[#7D4F50]/90 transition shadow-md"
         >
           Voltar à Página Inicial
         </Button>
@@ -117,39 +117,39 @@ const AppointmentConfirmation = ({
   
   return (
     <div>
-      <h2 className="font-serif text-2xl text-[#7D4F50] mb-6 text-center">Confirme seu Agendamento</h2>
+      <h2 className="text-xl text-[#7D4F50] mb-6 text-center">Contato</h2>
       
       {/* Appointment Summary */}
-      <div className="bg-white rounded-xl shadow-md p-6 mb-8">
-        <h3 className="text-lg font-medium mb-4 font-serif text-[#7D4F50]">Resumo</h3>
+      <div className="bg-white rounded-xl shadow-sm border border-[#E8D4C4] p-4 mb-6">
+        <h3 className="text-lg mb-3 text-[#7D4F50]">Resumo</h3>
         
-        <div className="space-y-3 mb-6">
+        <div className="space-y-2">
           <div className="flex justify-between pb-2 border-b border-[#E8D4C4]">
             <span className="text-[#333333]/70">Serviço:</span>
-            <span className="font-medium">{selectedService?.name || 'Não selecionado'}</span>
+            <span>{selectedService?.name || 'Não selecionado'}</span>
           </div>
           <div className="flex justify-between pb-2 border-b border-[#E8D4C4]">
             <span className="text-[#333333]/70">Data:</span>
-            <span className="font-medium">{selectedDate ? formatDatePt(selectedDate) : 'Não selecionada'}</span>
+            <span>{selectedDate ? formatDatePt(selectedDate) : 'Não selecionada'}</span>
           </div>
           <div className="flex justify-between pb-2 border-b border-[#E8D4C4]">
             <span className="text-[#333333]/70">Hora:</span>
-            <span className="font-medium">{selectedTime || 'Não selecionada'}</span>
+            <span>{selectedTime || 'Não selecionada'}</span>
           </div>
           <div className="flex justify-between pb-2 border-b border-[#E8D4C4]">
             <span className="text-[#333333]/70">Preço:</span>
-            <span className="font-medium">{selectedService ? formatCurrency(selectedService.price) : '-'}</span>
+            <span>{selectedService ? formatCurrency(selectedService.price) : '-'}</span>
           </div>
           <div className="flex justify-between pb-2 border-b border-[#E8D4C4]">
             <span className="text-[#333333]/70">Duração:</span>
-            <span className="font-medium">{selectedService ? formatDuration(selectedService.duration) : '-'}</span>
+            <span>{selectedService ? formatDuration(selectedService.duration) : '-'}</span>
           </div>
         </div>
       </div>
       
       {/* Client Information Form */}
-      <div className="bg-white rounded-xl shadow-md p-6 mb-8">
-        <h3 className="text-lg font-medium mb-4 font-serif text-[#7D4F50]">Seus Dados</h3>
+      <div className="bg-white rounded-xl shadow-sm border border-[#E8D4C4] p-4 mb-4">
+        <h3 className="text-lg mb-3 text-[#7D4F50]">Seus Dados</h3>
         
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -158,7 +158,7 @@ const AppointmentConfirmation = ({
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-medium text-[#333333]/70">Nome Completo*</FormLabel>
+                  <FormLabel className="text-sm text-[#333333]/70">Nome Completo*</FormLabel>
                   <FormControl>
                     <Input 
                       {...field} 
@@ -175,7 +175,7 @@ const AppointmentConfirmation = ({
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-medium text-[#333333]/70">Email*</FormLabel>
+                  <FormLabel className="text-sm text-[#333333]/70">Email*</FormLabel>
                   <FormControl>
                     <Input 
                       {...field} 
@@ -193,7 +193,7 @@ const AppointmentConfirmation = ({
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-medium text-[#333333]/70">Telefone*</FormLabel>
+                  <FormLabel className="text-sm text-[#333333]/70">Telefone*</FormLabel>
                   <FormControl>
                     <Input 
                       {...field} 
@@ -211,7 +211,7 @@ const AppointmentConfirmation = ({
               name="notes"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-medium text-[#333333]/70">Observações (opcional)</FormLabel>
+                  <FormLabel className="text-sm text-[#333333]/70">Observações (opcional)</FormLabel>
                   <FormControl>
                     <Textarea 
                       {...field} 
@@ -224,20 +224,20 @@ const AppointmentConfirmation = ({
               )}
             />
             
-            <div className="flex justify-between mt-8">
+            <div className="flex justify-between mt-6">
               <Button 
                 type="button"
                 onClick={onBack}
-                className="border border-[#7D4F50] text-[#7D4F50] py-3 px-6 rounded-lg font-medium hover:bg-[#E8D4C4]/20 transition"
+                className="border border-[#7D4F50] text-[#7D4F50] py-2 px-5 rounded-lg hover:bg-[#E8D4C4]/20 transition"
               >
                 Voltar
               </Button>
               <Button 
                 type="submit"
                 disabled={createAppointmentMutation.isPending}
-                className="bg-[#7D4F50] text-white py-3 px-8 rounded-lg font-medium hover:bg-[#7D4F50]/90 transition shadow-md"
+                className="bg-[#7D4F50] text-white py-2 px-5 rounded-lg hover:bg-[#7D4F50]/90 transition shadow-md"
               >
-                {createAppointmentMutation.isPending ? 'Confirmando...' : 'Confirmar Agendamento'}
+                {createAppointmentMutation.isPending ? 'Confirmando...' : 'Confirmar'}
               </Button>
             </div>
           </form>

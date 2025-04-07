@@ -105,22 +105,22 @@ const DateTimeSelection = ({ onDateTimeSelect, onContinue, onBack }: DateTimeSel
   
   return (
     <div>
-      <h2 className="font-serif text-2xl text-[#7D4F50] mb-6 text-center">Escolha a Data e Hora</h2>
+      <h2 className="text-xl text-[#7D4F50] mb-6 text-center">Agenda</h2>
       
       {/* Calendar Section */}
-      <div className="bg-white rounded-xl shadow-md p-6 mb-8">
-        <div className="flex justify-between items-center mb-6">
+      <div className="bg-white rounded-xl shadow-sm border border-[#E8D4C4] p-4 mb-6">
+        <div className="flex justify-between items-center mb-4">
           <button 
             onClick={handlePrevMonth}
             className="text-[#7D4F50] hover:text-[#7D4F50]/80"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-          <div className="flex flex-col items-center">
-            <h3 
-              className="text-lg font-medium cursor-pointer hover:text-[#7D4F50] flex items-center"
+          <div className="flex flex-col items-center relative">
+            <button 
+              className="text-lg text-[#7D4F50] cursor-pointer hover:text-[#7D4F50]/80 flex items-center"
               onClick={toggleMonthSelector}
             >
               {ptMonths[currentMonth]} {currentYear}
@@ -133,10 +133,10 @@ const DateTimeSelection = ({ onDateTimeSelect, onContinue, onBack }: DateTimeSel
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
-            </h3>
+            </button>
             
             {showMonthSelector && (
-              <div className="mt-2 grid grid-cols-3 gap-2 bg-white p-2 rounded-lg shadow-md">
+              <div className="absolute top-full mt-1 z-10 grid grid-cols-4 gap-1 bg-white p-2 rounded-lg shadow-md border border-[#E8D4C4]">
                 {ptMonths.map((month, index) => (
                   <button
                     key={index}
@@ -153,7 +153,7 @@ const DateTimeSelection = ({ onDateTimeSelect, onContinue, onBack }: DateTimeSel
             onClick={handleNextMonth}
             className="text-[#7D4F50] hover:text-[#7D4F50]/80"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
@@ -161,13 +161,13 @@ const DateTimeSelection = ({ onDateTimeSelect, onContinue, onBack }: DateTimeSel
         
         {/* Days of week header */}
         <div className="grid grid-cols-7 gap-1 mb-2 text-center">
-          <div className="text-sm font-medium text-[#333333]/70">Dom</div>
-          <div className="text-sm font-medium text-[#333333]/70">Seg</div>
-          <div className="text-sm font-medium text-[#333333]/70">Ter</div>
-          <div className="text-sm font-medium text-[#333333]/70">Qua</div>
-          <div className="text-sm font-medium text-[#333333]/70">Qui</div>
-          <div className="text-sm font-medium text-[#333333]/70">Sex</div>
-          <div className="text-sm font-medium text-[#333333]/70">Sáb</div>
+          <div className="text-xs text-[#333333]/70">D</div>
+          <div className="text-xs text-[#333333]/70">S</div>
+          <div className="text-xs text-[#333333]/70">T</div>
+          <div className="text-xs text-[#333333]/70">Q</div>
+          <div className="text-xs text-[#333333]/70">Q</div>
+          <div className="text-xs text-[#333333]/70">S</div>
+          <div className="text-xs text-[#333333]/70">S</div>
         </div>
         
         {/* Calendar grid */}
@@ -181,7 +181,7 @@ const DateTimeSelection = ({ onDateTimeSelect, onContinue, onBack }: DateTimeSel
             return (
               <div 
                 key={index}
-                className={`aspect-square rounded-md flex items-center justify-center p-2 text-center 
+                className={`aspect-square rounded-md flex items-center justify-center text-center text-sm
                   ${day.disabled ? 'opacity-30 cursor-not-allowed' : 'hover:bg-[#E8D4C4]/50 cursor-pointer transition-colors'}
                   ${!day.currentMonth ? 'text-[#333333]/40' : 'text-[#333333]'}
                   ${isSelected ? 'bg-[#7D4F50] text-white' : ''}`}
@@ -195,45 +195,47 @@ const DateTimeSelection = ({ onDateTimeSelect, onContinue, onBack }: DateTimeSel
       </div>
       
       {/* Time Slots */}
-      <div className="bg-white rounded-xl shadow-md p-6 mb-8">
-        <h3 className="text-lg font-medium mb-4">Horários Disponíveis</h3>
+      <div className="bg-white rounded-xl shadow-sm border border-[#E8D4C4] p-4 mb-4">
+        <h3 className="text-lg mb-3 text-[#7D4F50]">Horários</h3>
         
         {selectedDate ? (
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3">
+          <div className="grid grid-cols-4 gap-2">
             {availableTimes.length > 0 ? (
               availableTimes.map((time, index) => (
                 <div 
                   key={index}
-                  className={`px-3 py-2 bg-[#F9F5F1] rounded text-center cursor-pointer transition 
-                    ${selectedTime === time ? 'bg-[#7D4F50] text-white' : 'hover:bg-[#E8D4C4]/50'}`}
+                  className={`px-2 py-1 border rounded text-center cursor-pointer transition text-sm
+                    ${selectedTime === time 
+                      ? 'bg-[#7D4F50] text-white border-[#7D4F50]' 
+                      : 'border-[#E8D4C4] hover:bg-[#E8D4C4]/20'}`}
                   onClick={() => handleTimeSelect(time)}
                 >
                   {time}
                 </div>
               ))
             ) : (
-              <p className="col-span-full text-center text-[#333333]/70 py-4">
+              <p className="col-span-full text-center text-[#333333]/70 py-2 text-sm">
                 Não há horários disponíveis para esta data.
               </p>
             )}
           </div>
         ) : (
-          <p className="text-center text-[#333333]/70 py-4">
+          <p className="text-center text-[#333333]/70 py-2 text-sm">
             Selecione uma data para ver os horários disponíveis.
           </p>
         )}
       </div>
       
-      <div className="flex justify-between mt-8">
+      <div className="flex justify-between mt-6">
         <Button 
           onClick={onBack}
-          className="border border-[#7D4F50] text-[#7D4F50] py-3 px-6 rounded-lg font-medium hover:bg-[#E8D4C4]/20 transition"
+          className="border border-[#7D4F50] text-[#7D4F50] py-2 px-5 rounded-lg hover:bg-[#E8D4C4]/20 transition"
         >
           Voltar
         </Button>
         <Button 
           onClick={handleContinue}
-          className="bg-[#7D4F50] text-white py-3 px-8 rounded-lg font-medium hover:bg-[#7D4F50]/90 transition shadow-md"
+          className="bg-[#7D4F50] text-white py-2 px-5 rounded-lg hover:bg-[#7D4F50]/90 transition shadow-md"
         >
           Continuar
         </Button>

@@ -32,30 +32,39 @@ const ServiceSelection = ({ onServiceSelect, onContinue }: ServiceSelectionProps
   const handleServiceSelect = (service: Service) => {
     setSelectedService(service);
     onServiceSelect(service);
+    
+    // Automatically continue to the next step when a service is selected
+    setTimeout(() => {
+      onContinue();
+    }, 300);
   };
   
-  const handleContinue = () => {
-    if (!selectedService) {
-      toast({
-        variant: 'destructive',
-        title: 'Serviço não selecionado',
-        description: 'Por favor, selecione um serviço para continuar.',
-      });
-      return;
-    }
-    
-    onContinue();
+  const handleBack = () => {
+    setShowSubcategories(false);
+    setSelectedService(null);
   };
   
   const categories = categoriesQuery.data as ServiceCategory[] || [];
   const services = servicesQuery.data as Service[] || [];
   
+  // Create mock services array with 10 items if needed
+  const displayServices = services.length > 0 
+    ? services 
+    : Array(10).fill(0).map((_, i) => ({
+        id: i,
+        categoryId: selectedCategory?.id || 0,
+        name: `Serviço ${i+1}`,
+        price: 25 + i * 5,
+        duration: 30 + i * 10,
+        image: 'https://images.unsplash.com/photo-1604902396830-aca29e19b067?q=80'
+      } as Service));
+  
   return (
     <div>
-      <h2 className="font-serif text-2xl text-[#7D4F50] mb-6 text-center">Escolha o Serviço</h2>
+      <h2 className="text-xl text-[#7D4F50] mb-6 text-center">Serviços</h2>
       
       {!showSubcategories && (
-        <div className="grid grid-cols-2 gap-3 mb-10">
+        <div className="grid grid-cols-2 gap-3 mb-4">
           {categoriesQuery.isLoading ? (
             <>
               <div className="aspect-square bg-[#E8D4C4]/20 rounded-xl animate-pulse" />
@@ -65,7 +74,7 @@ const ServiceSelection = ({ onServiceSelect, onContinue }: ServiceSelectionProps
             categories.map((category) => (
               <div 
                 key={category.id} 
-                className="service-box rounded-xl shadow-md overflow-hidden cursor-pointer transition-transform hover:scale-[1.03] aspect-square relative"
+                className="service-box rounded-xl shadow-md overflow-hidden cursor-pointer transition-transform hover:scale-[1.02] aspect-square relative"
                 onClick={() => handleCategorySelect(category)}
                 style={{
                   backgroundImage: `url(${category.image})`,
@@ -74,7 +83,7 @@ const ServiceSelection = ({ onServiceSelect, onContinue }: ServiceSelectionProps
                 }}
               >
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                  <h3 className="font-medium text-xl text-white">{category.name}</h3>
+                  <h3 className="text-xl text-white">{category.name}</h3>
                 </div>
               </div>
             ))
@@ -86,49 +95,45 @@ const ServiceSelection = ({ onServiceSelect, onContinue }: ServiceSelectionProps
       
       {showSubcategories && (
         <div id="subcategoriesSection">
-          <h3 className="font-serif text-xl text-[#7D4F50] mb-6 text-center">
-            Selecione a Opção de {selectedCategory?.name}
-          </h3>
+          {/* Back button and category title */}
+          <div className="flex items-center mb-4">
+            <button 
+              onClick={handleBack} 
+              className="flex items-center text-[#7D4F50] hover:text-[#7D4F50]/80 transition"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
+              </svg>
+              Voltar
+            </button>
+            <h3 className="text-[#7D4F50] mx-auto pr-10">
+              {selectedCategory?.name}
+            </h3>
+          </div>
           
+          {/* Services grid - 2 items per row, 5 rows = 10 items */}
           <div className="grid grid-cols-2 gap-3 mb-6">
             {servicesQuery.isLoading ? (
               Array(10).fill(0).map((_, i) => (
-                <div key={i} className="aspect-square bg-[#E8D4C4]/20 rounded-lg animate-pulse" />
+                <div key={i} className="bg-[#E8D4C4]/20 rounded-lg animate-pulse h-24" />
               ))
-            ) : services.length > 0 ? (
-              services.map((service) => (
+            ) : (
+              displayServices.slice(0, 10).map((service) => (
                 <div 
                   key={service.id} 
-                  className={`service-box bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer transition-transform hover:scale-[1.03] ${selectedService?.id === service.id ? 'ring-2 ring-[#7D4F50]' : ''}`}
+                  className={`service-item bg-white rounded-lg shadow-sm border cursor-pointer transition hover:shadow-md ${selectedService?.id === service.id ? 'border-[#7D4F50] ring-1 ring-[#7D4F50]' : 'border-[#E8D4C4]'}`}
                   onClick={() => handleServiceSelect(service)}
                 >
-                  <div className="h-full flex flex-col">
-                    <div className="flex-1 overflow-hidden">
-                      <img 
-                        src={service.image} 
-                        alt={service.name} 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-3 text-center bg-[#E8D4C4]">
-                      <h4 className="font-medium text-[#7D4F50] text-sm">{service.name}</h4>
-                      <p className="text-xs mt-1">{service.price}€ • {service.duration} min</p>
+                  <div className="p-3 text-center h-full flex flex-col justify-center">
+                    <h4 className="text-[#7D4F50]">{service.name}</h4>
+                    <div className="flex justify-between text-sm mt-1 px-2 text-[#333333]/70">
+                      <span>{service.duration} min</span>
+                      <span>{service.price}€</span>
                     </div>
                   </div>
                 </div>
               ))
-            ) : (
-              <p className="col-span-full text-center text-[#333333]/70">No services available for this category.</p>
             )}
-          </div>
-          
-          <div className="flex justify-center mt-8">
-            <Button 
-              onClick={handleContinue}
-              className="bg-[#7D4F50] text-white py-3 px-8 rounded-lg font-medium hover:bg-[#7D4F50]/90 transition shadow-md"
-            >
-              Continuar
-            </Button>
           </div>
         </div>
       )}
