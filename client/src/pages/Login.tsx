@@ -36,8 +36,15 @@ const Login = () => {
     try {
       setIsLoading(true);
       await login(values.username, values.password);
+      // Redirect to admin management page after successful login
+      setLocation('/admin');
     } catch (error) {
       console.error('Login error:', error);
+      toast({
+        variant: 'destructive',
+        title: 'Erro de login',
+        description: 'Usuário ou senha incorretos',
+      });
     } finally {
       setIsLoading(false);
     }

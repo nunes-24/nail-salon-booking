@@ -65,20 +65,16 @@ const ServiceSelection = ({ onServiceSelect, onContinue }: ServiceSelectionProps
             categories.map((category) => (
               <div 
                 key={category.id} 
-                className="service-box bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-transform hover:scale-[1.03] aspect-square"
+                className="service-box rounded-xl shadow-md overflow-hidden cursor-pointer transition-transform hover:scale-[1.03] aspect-square relative"
                 onClick={() => handleCategorySelect(category)}
+                style={{
+                  backgroundImage: `url(${category.image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
               >
-                <div className="h-full flex flex-col">
-                  <div className="flex-1 overflow-hidden">
-                    <img 
-                      src={category.image} 
-                      alt={category.name} 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="p-4 text-center bg-[#7D4F50] text-white">
-                    <h3 className="font-medium text-lg">{category.name}</h3>
-                  </div>
+                <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                  <h3 className="font-medium text-xl text-white">{category.name}</h3>
                 </div>
               </div>
             ))

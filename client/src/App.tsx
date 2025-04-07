@@ -13,11 +13,21 @@ import { AuthProvider } from "./lib/auth.tsx";
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/booking" component={Booking} />
-      <Route path="/login" component={Login} />
-      <Route path="/admin" component={Admin} />
-      <Route component={NotFound} />
+      <Route path="/">
+        <Home />
+      </Route>
+      <Route path="/booking">
+        <Home showBookingDirectly={true} />
+      </Route>
+      <Route path="/login">
+        <Login />
+      </Route>
+      <Route path="/admin">
+        <Admin />
+      </Route>
+      <Route>
+        <NotFound />
+      </Route>
     </Switch>
   );
 }
