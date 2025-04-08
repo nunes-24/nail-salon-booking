@@ -17,12 +17,8 @@ const Sidebar = ({ activeSection, onSectionChange, isOpen, onToggle }: SidebarPr
   const handleSectionChange = (section: SectionType) => {
     onSectionChange(section);
     
-    // If sidebar is closed, open it
-    if (!isOpen) {
-      onToggle();
-    } 
-    // If sidebar is open and we're on mobile, close it when selecting a section
-    else if (window.innerWidth < 768) {
+    // On mobile, always minimize the sidebar when selecting a section
+    if (isOpen && window.innerWidth < 768) {
       onToggle();
     }
   };
@@ -34,7 +30,9 @@ const Sidebar = ({ activeSection, onSectionChange, isOpen, onToggle }: SidebarPr
       <div className={`flex flex-col pt-6 ${isOpen ? 'px-6' : 'px-3'} mb-8`}>
         {isOpen ? (
           <>
-            <div className="text-xl font-serif text-[#7D4F50] font-bold">NailArtistry</div>
+            <div className="h-8 w-full flex items-center">
+              {/* Space for logo */}
+            </div>
             <div className="text-sm text-[#333333]/60">Área Administrativa</div>
           </>
         ) : (

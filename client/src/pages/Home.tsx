@@ -110,40 +110,40 @@ const Home = () => {
             <div className="flex items-center justify-between mb-8 px-4 w-full">
               {/* Step 1 */}
               <div className="flex flex-col items-center">
-                <div className={`w-10 h-10 rounded-full ${currentStep >= 1 ? 'bg-[#7D4F50]' : 'bg-[#D7B29D]/40'} flex items-center justify-center text-white mb-2`}>
+                <div className={`w-10 h-10 rounded-full ${currentStep >= 1 ? 'bg-red-600' : 'bg-red-200'} flex items-center justify-center text-white mb-2`}>
                   1
                 </div>
-                <span className={`text-sm text-center ${currentStep === 1 ? 'text-[#7D4F50]' : 'text-[#7D4F50]/60'}`}>
+                <span className={`text-sm text-center ${currentStep === 1 ? 'text-red-600' : 'text-red-400'}`}>
                   Serviços
                 </span>
               </div>
               
               {/* Connector - centered with circles */}
               <div className="flex items-center">
-                <div className={`h-[1px] w-16 ${currentStep >= 2 ? 'bg-[#7D4F50]' : 'bg-[#D7B29D]/40'}`}></div>
+                <div className={`h-[1px] w-16 ${currentStep >= 2 ? 'bg-red-600' : 'bg-red-200'}`}></div>
               </div>
               
               {/* Step 2 */}
               <div className="flex flex-col items-center">
-                <div className={`w-10 h-10 rounded-full ${currentStep >= 2 ? 'bg-[#7D4F50]' : 'bg-[#D7B29D]/40'} flex items-center justify-center text-white mb-2`}>
+                <div className={`w-10 h-10 rounded-full ${currentStep >= 2 ? 'bg-red-600' : 'bg-red-200'} flex items-center justify-center text-white mb-2`}>
                   2
                 </div>
-                <span className={`text-sm text-center ${currentStep === 2 ? 'text-[#7D4F50]' : 'text-[#7D4F50]/60'}`}>
+                <span className={`text-sm text-center ${currentStep === 2 ? 'text-red-600' : 'text-red-400'}`}>
                   Agenda
                 </span>
               </div>
               
               {/* Connector - centered with circles */}
               <div className="flex items-center">
-                <div className={`h-[1px] w-16 ${currentStep >= 3 ? 'bg-[#7D4F50]' : 'bg-[#D7B29D]/40'}`}></div>
+                <div className={`h-[1px] w-16 ${currentStep >= 3 ? 'bg-red-600' : 'bg-red-200'}`}></div>
               </div>
               
               {/* Step 3 */}
               <div className="flex flex-col items-center">
-                <div className={`w-10 h-10 rounded-full ${currentStep >= 3 ? 'bg-[#7D4F50]' : 'bg-[#D7B29D]/40'} flex items-center justify-center text-white mb-2`}>
+                <div className={`w-10 h-10 rounded-full ${currentStep >= 3 ? 'bg-red-600' : 'bg-red-200'} flex items-center justify-center text-white mb-2`}>
                   3
                 </div>
-                <span className={`text-sm text-center ${currentStep === 3 ? 'text-[#7D4F50]' : 'text-[#7D4F50]/60'}`}>
+                <span className={`text-sm text-center ${currentStep === 3 ? 'text-red-600' : 'text-red-400'}`}>
                   Contacto
                 </span>
               </div>
@@ -186,9 +186,9 @@ const Home = () => {
               R. Casal do Marco 73c, 2840-732 Arrentela
             </p>
             {/* Google Maps iframe - satellite view with higher zoom */}
-            <div className="w-full h-40 rounded-lg overflow-hidden">
+            <div className="w-full h-32 rounded-lg overflow-hidden">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d778.5068842929984!2d-9.107406838539076!3d38.62409392691151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19378ba465cedf%3A0xd6edd8582bed3ae1!2sR.%20Casal%20do%20Marco%2073C%2C%202840-732%20Arrentela!5e1!3m2!1spt-BR!2spt!4v1713469034998!5m2!1spt-BR!2spt" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d389.2534421464992!2d-9.107406838539076!3d38.62409392691151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19378ba465cedf%3A0xd6edd8582bed3ae1!2sR.%20Casal%20do%20Marco%2073C%2C%202840-732%20Arrentela!5e1!3m2!1spt-BR!2spt!4v1713469034998!5m2!1spt-BR!2spt" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
