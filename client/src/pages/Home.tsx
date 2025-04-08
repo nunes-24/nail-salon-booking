@@ -97,7 +97,7 @@ const Home = () => {
         <div className="w-full flex justify-center mb-8">
           <Button 
             onClick={handleBookNow} 
-            className="px-6 py-2 bg-[#FF6B98] text-white rounded-lg hover:bg-[#cc0000]/90 transition shadow-md w-40"
+            className="px-6 py-2 bg-[#cc0000] text-white rounded-lg hover:bg-[#cc0000]/90 transition shadow-md w-40"
           >
             Agendar Agora
           </Button>
