@@ -61,7 +61,7 @@ const ServiceSelection = ({ onServiceSelect, onContinue }: ServiceSelectionProps
   
   return (
     <div>
-      <h2 className="text-xl text-[#7D4F50] mb-6 text-center">Serviços</h2>
+      <h2 className="text-xl text-[#7D4F50] mb-6 text-center font-semibold">Passo 1: Escolha o serviço</h2>
       
       {!showSubcategories && (
         <div className="grid grid-cols-2 gap-3 mb-4">
@@ -115,19 +115,18 @@ const ServiceSelection = ({ onServiceSelect, onContinue }: ServiceSelectionProps
           <div className="grid grid-cols-2 gap-3 mb-6">
             {servicesQuery.isLoading ? (
               Array(10).fill(0).map((_, i) => (
-                <div key={i} className="bg-[#E8D4C4]/20 rounded-lg animate-pulse h-24" />
+                <div key={i} className="bg-[#E8D4C4]/20 rounded-lg animate-pulse aspect-square" />
               ))
             ) : (
               displayServices.slice(0, 10).map((service) => (
                 <div 
                   key={service.id} 
-                  className={`service-item bg-white rounded-lg shadow-sm border cursor-pointer transition hover:shadow-md ${selectedService?.id === service.id ? 'border-[#7D4F50] ring-1 ring-[#7D4F50]' : 'border-[#E8D4C4]'}`}
+                  className={`service-item bg-white rounded-xl shadow-md border cursor-pointer transition-transform hover:scale-[1.02] aspect-square relative ${selectedService?.id === service.id ? 'border-[#7D4F50] ring-1 ring-[#7D4F50]' : 'border-[#E8D4C4]'}`}
                   onClick={() => handleServiceSelect(service)}
                 >
-                  <div className="p-3 text-center h-full flex flex-col justify-center">
-                    <h4 className="text-[#7D4F50]">{service.name}</h4>
-                    <div className="flex justify-between text-sm mt-1 px-2 text-[#333333]/70">
-                      <span>{service.duration} min</span>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-3 text-center">
+                    <h4 className="text-[#7D4F50] font-medium">{service.name}</h4>
+                    <div className="w-full text-sm mt-2 px-4 text-center text-[#333333]/70">
                       <span>{service.price}€</span>
                     </div>
                   </div>

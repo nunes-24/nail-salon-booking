@@ -117,7 +117,7 @@ const AppointmentConfirmation = ({
   
   return (
     <div>
-      <h2 className="text-xl text-[#7D4F50] mb-6 text-center">Contato</h2>
+      <h2 className="text-xl text-[#7D4F50] mb-6 text-center font-semibold">Passo 3: Insira os seus dados</h2>
       
       {/* Appointment Summary */}
       <div className="bg-white rounded-xl shadow-sm border border-[#E8D4C4] p-4 mb-6">
@@ -140,10 +140,7 @@ const AppointmentConfirmation = ({
             <span className="text-[#333333]/70">Preço:</span>
             <span>{selectedService ? formatCurrency(selectedService.price) : '-'}</span>
           </div>
-          <div className="flex justify-between pb-2 border-b border-[#E8D4C4]">
-            <span className="text-[#333333]/70">Duração:</span>
-            <span>{selectedService ? formatDuration(selectedService.duration) : '-'}</span>
-          </div>
+
         </div>
       </div>
       
@@ -195,11 +192,26 @@ const AppointmentConfirmation = ({
                 <FormItem>
                   <FormLabel className="text-sm text-[#333333]/70">Telefone*</FormLabel>
                   <FormControl>
-                    <Input 
-                      {...field} 
-                      type="tel"
-                      className="w-full px-4 py-2 border border-[#E8D4C4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7D4F50]/50"
-                    />
+                    <div className="flex">
+                      <div className="flex-shrink-0 w-20 mr-2">
+                        <select 
+                          className="w-full h-full px-2 py-2 border border-[#E8D4C4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7D4F50]/50"
+                          defaultValue="+351"
+                        >
+                          <option value="+351">+351 🇵🇹</option>
+                          <option value="+34">+34 🇪🇸</option>
+                          <option value="+33">+33 🇫🇷</option>
+                          <option value="+44">+44 🇬🇧</option>
+                          <option value="+39">+39 🇮🇹</option>
+                          <option value="+55">+55 🇧🇷</option>
+                        </select>
+                      </div>
+                      <Input 
+                        {...field} 
+                        type="tel"
+                        className="w-full px-4 py-2 border border-[#E8D4C4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7D4F50]/50"
+                      />
+                    </div>
                   </FormControl>
                   <FormMessage />
                 </FormItem>

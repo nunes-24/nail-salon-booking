@@ -76,17 +76,13 @@ export function formatDuration(minutes: number): string {
 
 // Get available times for a given day
 export function getAvailableTimes(date: Date): string[] {
-  // Working hours from 9:00 to 18:00 with 30 min intervals
-  const availableTimes = [];
-  const startHour = 9;
-  const endHour = 18;
-  
-  for (let hour = startHour; hour < endHour; hour++) {
-    availableTimes.push(`${hour.toString().padStart(2, '0')}:00`);
-    availableTimes.push(`${hour.toString().padStart(2, '0')}:30`);
+  // No availability on Sundays
+  if (date.getDay() === 0) { // Sunday
+    return [];
   }
   
-  return availableTimes;
+  // Fixed set of available times as requested
+  return ['09:30', '11:30', '14:00', '16:00'];
 }
 
 // Check if a date is in the past
@@ -138,10 +134,12 @@ export function getCalendarDays(year: number, month: number): {day: number, curr
   
   for (let i = 1; i <= lastDay.getDate(); i++) {
     const date = new Date(year, month, i);
+    // Disable past dates and Sundays (day 0)
+    const isSunday = date.getDay() === 0;
     days.push({
       day: i,
       currentMonth: true,
-      disabled: date < today
+      disabled: date < today || isSunday
     });
   }
   

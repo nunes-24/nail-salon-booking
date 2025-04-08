@@ -105,7 +105,7 @@ const DateTimeSelection = ({ onDateTimeSelect, onContinue, onBack }: DateTimeSel
   
   return (
     <div>
-      <h2 className="text-xl text-[#7D4F50] mb-6 text-center">Agenda</h2>
+      <h2 className="text-xl text-[#7D4F50] mb-6 text-center font-semibold">Passo 2: Escolha o Dia e Hora</h2>
       
       {/* Calendar Section */}
       <div className="bg-white rounded-xl shadow-sm border border-[#E8D4C4] p-4 mb-6">
@@ -196,7 +196,12 @@ const DateTimeSelection = ({ onDateTimeSelect, onContinue, onBack }: DateTimeSel
       
       {/* Time Slots */}
       <div className="bg-white rounded-xl shadow-sm border border-[#E8D4C4] p-4 mb-4">
-        <h3 className="text-lg mb-3 text-[#7D4F50]">Horários</h3>
+        <h3 className="text-lg mb-3 text-[#7D4F50]">
+          {selectedDate ? 
+            `Horários disponíveis em ${selectedDate.getDate()} ${ptMonths[selectedDate.getMonth()]}, ${selectedDate.getFullYear()}` : 
+            'Horários'
+          }
+        </h3>
         
         {selectedDate ? (
           <div className="grid grid-cols-4 gap-2">

@@ -77,27 +77,28 @@ const Home = () => {
               <p className="text-[#333333]/80 mb-3">
                 Com mais de 10 anos de experiência na arte de unhas, trago paixão e precisão a cada trabalho. Especializada em nail art personalizada e técnicas avançadas de manicure e pedicure.
               </p>
-              <p className="text-[#333333]/80 mb-3">
+              <p className="text-[#333333]/80 mb-5">
                 Meu compromisso é oferecer um serviço de excelência em um ambiente acolhedor e relaxante.
               </p>
-              <p className="text-[#333333]/80 mb-0 flex items-center justify-center">
-                <em className="mr-2">Iola Nails</em>
+              <div className="flex items-center justify-center">
+                <div className="flex-grow h-px bg-[#E8D4C4]"></div>
+                <em className="mx-3 text-[#7D4F50] italic">Iolanda Magalhães</em>
                 <button 
                   onClick={handleInstagramClick}
-                  className="text-[#7D4F50] hover:text-[#7D4F50]/80"
+                  className="text-[#7D4F50] hover:text-[#7D4F50]/80 ml-2"
                 >
                   <Instagram size={18} />
                 </button>
-              </p>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Book Now button - smaller width, text sized */}
+        {/* Book Now button - smaller width, text sized, lighter pink */}
         <div className="w-full flex justify-center mb-8">
           <Button 
             onClick={handleBookNow} 
-            className="px-8 py-2 bg-[#7D4F50] text-white rounded-lg hover:bg-[#7D4F50]/90 transition shadow-md"
+            className="px-8 py-2 bg-[#D7B29D] text-white rounded-lg hover:bg-[#D7B29D]/90 transition shadow-md"
           >
             Agendar Agora
           </Button>
@@ -114,7 +115,7 @@ const Home = () => {
                   1
                 </div>
                 <span className={`text-sm ${currentStep === 1 ? 'text-[#7D4F50]' : 'text-[#D7B29D]'}`}>
-                  Serviços
+                  Escolha o serviço
                 </span>
               </div>
               
@@ -127,7 +128,7 @@ const Home = () => {
                   2
                 </div>
                 <span className={`text-sm ${currentStep === 2 ? 'text-[#7D4F50]' : 'text-[#D7B29D]'}`}>
-                  Agenda
+                  Escolha o Dia e Hora
                 </span>
               </div>
               
@@ -140,7 +141,7 @@ const Home = () => {
                   3
                 </div>
                 <span className={`text-sm ${currentStep === 3 ? 'text-[#7D4F50]' : 'text-[#D7B29D]'}`}>
-                  Contato
+                  Insira os seus dados
                 </span>
               </div>
             </div>
@@ -181,10 +182,10 @@ const Home = () => {
             <p className="text-[#333333]/80 mb-4 text-center">
               R. Casal do Marco 73c, 2840-732 Arrentela
             </p>
-            {/* Google Maps iframe - satellite view with less height */}
-            <div className="w-full h-32 rounded-lg overflow-hidden">
+            {/* Google Maps iframe - satellite view with higher zoom */}
+            <div className="w-full h-40 rounded-lg overflow-hidden">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3114.0323723021774!2d-9.1074068!3d38.6240939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19378ba465cedf%3A0xd6edd8582bed3ae1!2sR.%20Casal%20do%20Marco%2073C%2C%202840-732%20Arrentela!5e1!3m2!1spt-BR!2spt!4v1713469034998!5m2!1spt-BR!2spt" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1557.013768962676!2d-9.1074068!3d38.6240939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19378ba465cedf%3A0xd6edd8582bed3ae1!2sR.%20Casal%20do%20Marco%2073C%2C%202840-732%20Arrentela!5e1!3m2!1spt-BR!2spt!4v1713469034998!5m2!1spt-BR!2spt" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
