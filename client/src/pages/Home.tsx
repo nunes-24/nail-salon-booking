@@ -75,7 +75,7 @@ const Home = () => {
               </div>
               
               {/* Bio text after image */}
-              <p className="text-[#333333]/50">
+              <p className="text-[#333333]/80">
                 Ao longo do meu percurso, tenho procurado aprimorar as minhas habilidades de modo a proporcionar o melhor aos meus clientes. Concluí várias formações na área da estética, sendo que tenho uma grande paixão pelo nail design e, especialmente, pela pedicure.
               </p>
             </div>
@@ -204,7 +204,7 @@ const Home = () => {
         <footer className="w-full max-w-md px-4 py-4 text-center">
           <div className="border-t border-black/10 pt-4 w-full">
             <p className="text-sm text-[#333333]/60">
-              © 2025 Agenda de Iolanda Magalhães. Todos os direitos reservados.
+              © 2025 Iolanda Magalhães. Todos os direitos reservados.
             </p>
           </div>
         </footer>
