@@ -61,7 +61,7 @@ const ServiceSelection = ({ onServiceSelect, onContinue }: ServiceSelectionProps
   
   return (
     <div>
-      <h2 className="text-xl text-[#7D4F50] mb-6 text-center font-semibold">Passo 1: Escolha o serviço</h2>
+      <h2 className="text-xl text-[#7D4F50] mb-6 text-center font-semibold">Serviços</h2>
       
       {!showSubcategories && (
         <div className="grid grid-cols-2 gap-3 mb-4">

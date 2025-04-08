@@ -28,9 +28,13 @@ const Admin = () => {
     }
   }, [isAuthenticated, setLocation]);
   
-  // Adjust sidebar state when screen size changes
+  // Keep sidebar open only on desktop screens initially
   useEffect(() => {
-    setSidebarOpen(!isMobile);
+    if (isMobile) {
+      setSidebarOpen(false);
+    } else {
+      setSidebarOpen(true);
+    }
   }, [isMobile]);
   
   const toggleSidebar = () => {

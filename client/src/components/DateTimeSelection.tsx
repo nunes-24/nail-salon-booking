@@ -105,7 +105,7 @@ const DateTimeSelection = ({ onDateTimeSelect, onContinue, onBack }: DateTimeSel
   
   return (
     <div>
-      <h2 className="text-xl text-[#7D4F50] mb-6 text-center font-semibold">Passo 2: Escolha o Dia e Hora</h2>
+      <h2 className="text-xl text-[#7D4F50] mb-6 text-center font-semibold">Agenda</h2>
       
       {/* Calendar Section */}
       <div className="bg-white rounded-xl shadow-sm border border-[#E8D4C4] p-4 mb-6">
@@ -123,7 +123,7 @@ const DateTimeSelection = ({ onDateTimeSelect, onContinue, onBack }: DateTimeSel
               className="text-lg text-[#7D4F50] cursor-pointer hover:text-[#7D4F50]/80 flex items-center"
               onClick={toggleMonthSelector}
             >
-              {ptMonths[currentMonth]} {currentYear}
+              {ptMonths[currentMonth]}
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 className={`h-4 w-4 ml-1 transition-transform ${showMonthSelector ? 'rotate-180' : ''}`} 
@@ -198,31 +198,26 @@ const DateTimeSelection = ({ onDateTimeSelect, onContinue, onBack }: DateTimeSel
       <div className="bg-white rounded-xl shadow-sm border border-[#E8D4C4] p-4 mb-4">
         <h3 className="text-lg mb-3 text-[#7D4F50]">
           {selectedDate ? 
-            `Horários disponíveis em ${selectedDate.getDate()} ${ptMonths[selectedDate.getMonth()]}, ${selectedDate.getFullYear()}` : 
-            'Horários'
+            `Horários disponíveis ${selectedDate.getDate()} de ${ptMonths[selectedDate.getMonth()]}, ${selectedDate.getFullYear()}` : 
+            'Horários disponíveis'
           }
         </h3>
         
         {selectedDate ? (
           <div className="grid grid-cols-4 gap-2">
-            {availableTimes.length > 0 ? (
-              availableTimes.map((time, index) => (
-                <div 
-                  key={index}
-                  className={`px-2 py-1 border rounded text-center cursor-pointer transition text-sm
-                    ${selectedTime === time 
-                      ? 'bg-[#7D4F50] text-white border-[#7D4F50]' 
-                      : 'border-[#E8D4C4] hover:bg-[#E8D4C4]/20'}`}
-                  onClick={() => handleTimeSelect(time)}
-                >
-                  {time}
-                </div>
-              ))
-            ) : (
-              <p className="col-span-full text-center text-[#333333]/70 py-2 text-sm">
-                Não há horários disponíveis para esta data.
-              </p>
-            )}
+            {/* Just show specific time slots: 09:30, 11:30, 14:00, 16:00 */}
+            {['09:30', '11:30', '14:00', '16:00'].map((time, index) => (
+              <div 
+                key={index}
+                className={`px-2 py-1 border rounded text-center cursor-pointer transition text-sm
+                  ${selectedTime === time 
+                    ? 'bg-[#7D4F50] text-white border-[#7D4F50]' 
+                    : 'border-[#E8D4C4] hover:bg-[#E8D4C4]/20'}`}
+                onClick={() => handleTimeSelect(time)}
+              >
+                {time}
+              </div>
+            ))}
           </div>
         ) : (
           <p className="text-center text-[#333333]/70 py-2 text-sm">
@@ -231,16 +226,16 @@ const DateTimeSelection = ({ onDateTimeSelect, onContinue, onBack }: DateTimeSel
         )}
       </div>
       
-      <div className="flex justify-between mt-6">
+      <div className="flex justify-center space-x-4 mt-6">
         <Button 
           onClick={onBack}
-          className="border border-[#7D4F50] text-[#7D4F50] py-2 px-5 rounded-lg hover:bg-[#E8D4C4]/20 transition"
+          className="border border-[#D7B29D] text-[#D7B29D] py-2 px-5 rounded-lg hover:bg-[#E8D4C4]/20 transition"
         >
           Voltar
         </Button>
         <Button 
           onClick={handleContinue}
-          className="bg-[#7D4F50] text-white py-2 px-5 rounded-lg hover:bg-[#7D4F50]/90 transition shadow-md"
+          className="bg-[#D7B29D] text-white py-2 px-5 rounded-lg hover:bg-[#D7B29D]/90 transition shadow-md"
         >
           Continuar
         </Button>

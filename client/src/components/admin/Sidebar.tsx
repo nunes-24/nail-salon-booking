@@ -39,8 +39,6 @@ const Sidebar = ({ activeSection, onSectionChange, isOpen, onToggle }: SidebarPr
             onSectionChange('clients'); 
             if (!isOpen) {
               onToggle(); // Open if closed
-            } else {
-              onToggle(); // Close after selecting
             }
           }}
           className={`sidebar-item flex items-center w-full ${isOpen ? 'px-6 text-left' : 'justify-center px-3'} py-3 ${activeSection === 'clients' ? 'bg-[#E8D4C4] text-[#7D4F50]' : 'hover:bg-[#E8D4C4] hover:text-[#7D4F50]'} transition-all`}
@@ -57,8 +55,6 @@ const Sidebar = ({ activeSection, onSectionChange, isOpen, onToggle }: SidebarPr
             onSectionChange('appointments'); 
             if (!isOpen) {
               onToggle(); // Open if closed
-            } else {
-              onToggle(); // Close after selecting
             }
           }}
           className={`sidebar-item flex items-center w-full ${isOpen ? 'px-6 text-left' : 'justify-center px-3'} py-3 ${activeSection === 'appointments' ? 'bg-[#E8D4C4] text-[#7D4F50]' : 'hover:bg-[#E8D4C4] hover:text-[#7D4F50]'} transition-all`}
@@ -75,8 +71,6 @@ const Sidebar = ({ activeSection, onSectionChange, isOpen, onToggle }: SidebarPr
             onSectionChange('schedules'); 
             if (!isOpen) {
               onToggle(); // Open if closed
-            } else {
-              onToggle(); // Close after selecting
             }
           }}
           className={`sidebar-item flex items-center w-full ${isOpen ? 'px-6 text-left' : 'justify-center px-3'} py-3 ${activeSection === 'schedules' ? 'bg-[#E8D4C4] text-[#7D4F50]' : 'hover:bg-[#E8D4C4] hover:text-[#7D4F50]'} transition-all`}
@@ -93,8 +87,6 @@ const Sidebar = ({ activeSection, onSectionChange, isOpen, onToggle }: SidebarPr
             onSectionChange('billing'); 
             if (!isOpen) {
               onToggle(); // Open if closed
-            } else {
-              onToggle(); // Close after selecting
             }
           }}
           className={`sidebar-item flex items-center w-full ${isOpen ? 'px-6 text-left' : 'justify-center px-3'} py-3 ${activeSection === 'billing' ? 'bg-[#E8D4C4] text-[#7D4F50]' : 'hover:bg-[#E8D4C4] hover:text-[#7D4F50]'} transition-all`}
@@ -111,8 +103,6 @@ const Sidebar = ({ activeSection, onSectionChange, isOpen, onToggle }: SidebarPr
             onSectionChange('services'); 
             if (!isOpen) {
               onToggle(); // Open if closed
-            } else {
-              onToggle(); // Close after selecting
             }
           }}
           className={`sidebar-item flex items-center w-full ${isOpen ? 'px-6 text-left' : 'justify-center px-3'} py-3 ${activeSection === 'services' ? 'bg-[#E8D4C4] text-[#7D4F50]' : 'hover:bg-[#E8D4C4] hover:text-[#7D4F50]'} transition-all`}
@@ -129,8 +119,6 @@ const Sidebar = ({ activeSection, onSectionChange, isOpen, onToggle }: SidebarPr
             onSectionChange('messages'); 
             if (!isOpen) {
               onToggle(); // Open if closed
-            } else {
-              onToggle(); // Close after selecting
             }
           }}
           className={`sidebar-item flex items-center w-full ${isOpen ? 'px-6 text-left' : 'justify-center px-3'} py-3 ${activeSection === 'messages' ? 'bg-[#E8D4C4] text-[#7D4F50]' : 'hover:bg-[#E8D4C4] hover:text-[#7D4F50]'} transition-all`}
@@ -147,8 +135,6 @@ const Sidebar = ({ activeSection, onSectionChange, isOpen, onToggle }: SidebarPr
             onSectionChange('config');
             if (!isOpen) {
               onToggle(); // Open if closed
-            } else {
-              onToggle(); // Close after selecting
             }
           }}
           className={`sidebar-item flex items-center w-full ${isOpen ? 'px-6 text-left' : 'justify-center px-3'} py-3 ${activeSection === 'config' ? 'bg-[#E8D4C4] text-[#7D4F50]' : 'hover:bg-[#E8D4C4] hover:text-[#7D4F50]'} transition-all`}

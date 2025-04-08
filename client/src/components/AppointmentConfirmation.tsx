@@ -107,7 +107,7 @@ const AppointmentConfirmation = ({
         </p>
         <Button 
           onClick={handleReturnToMain}
-          className="bg-[#7D4F50] text-white py-3 px-8 rounded-lg hover:bg-[#7D4F50]/90 transition shadow-md"
+          className="bg-[#D7B29D] text-white py-3 px-8 rounded-lg hover:bg-[#D7B29D]/90 transition shadow-md"
         >
           Voltar à Página Inicial
         </Button>
@@ -117,30 +117,29 @@ const AppointmentConfirmation = ({
   
   return (
     <div>
-      <h2 className="text-xl text-[#7D4F50] mb-6 text-center font-semibold">Passo 3: Insira os seus dados</h2>
+      <h2 className="text-xl text-[#7D4F50] mb-6 text-center font-semibold">Contacto</h2>
       
       {/* Appointment Summary */}
       <div className="bg-white rounded-xl shadow-sm border border-[#E8D4C4] p-4 mb-6">
         <h3 className="text-lg mb-3 text-[#7D4F50]">Resumo</h3>
         
         <div className="space-y-2">
-          <div className="flex justify-between pb-2 border-b border-[#E8D4C4]">
+          <div className="flex justify-between pb-2">
             <span className="text-[#333333]/70">Serviço:</span>
             <span>{selectedService?.name || 'Não selecionado'}</span>
           </div>
-          <div className="flex justify-between pb-2 border-b border-[#E8D4C4]">
+          <div className="flex justify-between pb-2">
             <span className="text-[#333333]/70">Data:</span>
             <span>{selectedDate ? formatDatePt(selectedDate) : 'Não selecionada'}</span>
           </div>
-          <div className="flex justify-between pb-2 border-b border-[#E8D4C4]">
+          <div className="flex justify-between pb-2">
             <span className="text-[#333333]/70">Hora:</span>
             <span>{selectedTime || 'Não selecionada'}</span>
           </div>
-          <div className="flex justify-between pb-2 border-b border-[#E8D4C4]">
+          <div className="flex justify-between pb-2">
             <span className="text-[#333333]/70">Preço:</span>
             <span>{selectedService ? formatCurrency(selectedService.price) : '-'}</span>
           </div>
-
         </div>
       </div>
       
@@ -236,18 +235,18 @@ const AppointmentConfirmation = ({
               )}
             />
             
-            <div className="flex justify-between mt-6">
+            <div className="flex justify-center space-x-4 mt-6">
               <Button 
                 type="button"
                 onClick={onBack}
-                className="border border-[#7D4F50] text-[#7D4F50] py-2 px-5 rounded-lg hover:bg-[#E8D4C4]/20 transition"
+                className="border border-[#D7B29D] text-[#D7B29D] py-2 px-5 rounded-lg hover:bg-[#E8D4C4]/20 transition"
               >
                 Voltar
               </Button>
               <Button 
                 type="submit"
                 disabled={createAppointmentMutation.isPending}
-                className="bg-[#7D4F50] text-white py-2 px-5 rounded-lg hover:bg-[#7D4F50]/90 transition shadow-md"
+                className="bg-[#D7B29D] text-white py-2 px-5 rounded-lg hover:bg-[#D7B29D]/90 transition shadow-md"
               >
                 {createAppointmentMutation.isPending ? 'Confirmando...' : 'Confirmar'}
               </Button>
