@@ -93,11 +93,11 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Book Now button - smaller width, text sized, lighter pink */}
+        {/* Book Now button - smaller width, text sized, reviving pink */}
         <div className="w-full flex justify-center mb-8">
           <Button 
             onClick={handleBookNow} 
-            className="px-8 py-2 bg-[#D7B29D] text-white rounded-lg hover:bg-[#D7B29D]/90 transition shadow-md"
+            className="px-6 py-2 bg-[#FF6B98] text-white rounded-lg hover:bg-[#FF6B98]/90 transition shadow-md w-40"
           >
             Agendar Agora
           </Button>
@@ -110,40 +110,40 @@ const Home = () => {
             <div className="flex items-center justify-between mb-8 px-4 w-full">
               {/* Step 1 */}
               <div className="flex flex-col items-center">
-                <div className={`w-10 h-10 rounded-full ${currentStep >= 1 ? 'bg-[#D7B29D]' : 'bg-[#D7B29D]'} flex items-center justify-center text-white mb-2`}>
+                <div className={`w-10 h-10 rounded-full ${currentStep >= 1 ? 'bg-[#7D4F50]' : 'bg-[#D7B29D]/40'} flex items-center justify-center text-white mb-2`}>
                   1
                 </div>
-                <span className={`text-sm text-center ${currentStep === 1 ? 'text-[#D7B29D]' : 'text-[#D7B29D]'}`}>
+                <span className={`text-sm text-center ${currentStep === 1 ? 'text-[#7D4F50]' : 'text-[#7D4F50]/60'}`}>
                   Serviços
                 </span>
               </div>
               
               {/* Connector - centered with circles */}
               <div className="flex items-center">
-                <div className={`h-[1px] w-16 ${currentStep >= 2 ? 'bg-[#D7B29D]' : 'bg-[#D7B29D]'}`}></div>
+                <div className={`h-[1px] w-16 ${currentStep >= 2 ? 'bg-[#7D4F50]' : 'bg-[#D7B29D]/40'}`}></div>
               </div>
               
               {/* Step 2 */}
               <div className="flex flex-col items-center">
-                <div className={`w-10 h-10 rounded-full ${currentStep >= 2 ? 'bg-[#D7B29D]' : 'bg-[#D7B29D]'} flex items-center justify-center text-white mb-2`}>
+                <div className={`w-10 h-10 rounded-full ${currentStep >= 2 ? 'bg-[#7D4F50]' : 'bg-[#D7B29D]/40'} flex items-center justify-center text-white mb-2`}>
                   2
                 </div>
-                <span className={`text-sm text-center ${currentStep === 2 ? 'text-[#D7B29D]' : 'text-[#D7B29D]'}`}>
+                <span className={`text-sm text-center ${currentStep === 2 ? 'text-[#7D4F50]' : 'text-[#7D4F50]/60'}`}>
                   Agenda
                 </span>
               </div>
               
               {/* Connector - centered with circles */}
               <div className="flex items-center">
-                <div className={`h-[1px] w-16 ${currentStep >= 3 ? 'bg-[#D7B29D]' : 'bg-[#D7B29D]'}`}></div>
+                <div className={`h-[1px] w-16 ${currentStep >= 3 ? 'bg-[#7D4F50]' : 'bg-[#D7B29D]/40'}`}></div>
               </div>
               
               {/* Step 3 */}
               <div className="flex flex-col items-center">
-                <div className={`w-10 h-10 rounded-full ${currentStep >= 3 ? 'bg-[#D7B29D]' : 'bg-[#D7B29D]'} flex items-center justify-center text-white mb-2`}>
+                <div className={`w-10 h-10 rounded-full ${currentStep >= 3 ? 'bg-[#7D4F50]' : 'bg-[#D7B29D]/40'} flex items-center justify-center text-white mb-2`}>
                   3
                 </div>
-                <span className={`text-sm text-center ${currentStep === 3 ? 'text-[#D7B29D]' : 'text-[#D7B29D]'}`}>
+                <span className={`text-sm text-center ${currentStep === 3 ? 'text-[#7D4F50]' : 'text-[#7D4F50]/60'}`}>
                   Contacto
                 </span>
               </div>

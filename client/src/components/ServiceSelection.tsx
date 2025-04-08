@@ -61,7 +61,7 @@ const ServiceSelection = ({ onServiceSelect, onContinue }: ServiceSelectionProps
   
   return (
     <div>
-      <h2 className="text-xl text-[#7D4F50] mb-6 text-center font-semibold">Step 1: Escolha o serviço</h2>
+      <h2 className="text-xl text-[#7D4F50] mb-4 text-center font-medium">Serviços</h2>
       
       {!showSubcategories && (
         <div className="grid grid-cols-2 gap-3 mb-4">
@@ -95,13 +95,6 @@ const ServiceSelection = ({ onServiceSelect, onContinue }: ServiceSelectionProps
       
       {showSubcategories && (
         <div id="subcategoriesSection">
-          {/* Only the services category title shown at the top, no back button */}
-          <div className="text-center mb-4">
-            <h3 className="text-[#7D4F50] font-medium">
-              {selectedCategory?.name}
-            </h3>
-          </div>
-          
           {/* Services grid - 2 items per row, 5 rows = 10 items */}
           <div className="grid grid-cols-2 gap-3 mb-6">
             {servicesQuery.isLoading ? (

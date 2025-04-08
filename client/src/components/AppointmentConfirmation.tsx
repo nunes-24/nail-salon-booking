@@ -117,38 +117,36 @@ const AppointmentConfirmation = ({
   
   return (
     <div>
-      <h2 className="text-xl text-[#7D4F50] mb-6 text-center font-semibold">Step 3: Insira os seus dados</h2>
+      <h2 className="text-xl text-[#7D4F50] mb-4 text-center font-medium">Contacto</h2>
       
       {/* Appointment Summary */}
-      <div className="bg-white rounded-xl shadow-sm p-4 mb-6">
-        <h3 className="text-lg mb-3 text-[#7D4F50]">Resumo</h3>
+      <div className="bg-[#FCF5EE] rounded-xl p-3 mb-5">
+        <h3 className="text-base mb-2 text-[#7D4F50] font-medium">Resumo</h3>
         
-        <div className="space-y-2">
-          <div className="flex justify-between pb-2">
+        <div className="space-y-1 text-xs">
+          <div className="flex justify-between pb-1">
             <span className="text-[#333333]/70">Serviço:</span>
-            <span>{selectedService?.name || 'Não selecionado'}</span>
+            <span className="font-medium">{selectedService?.name || 'Não selecionado'}</span>
           </div>
-          <div className="flex justify-between pb-2">
+          <div className="flex justify-between pb-1">
             <span className="text-[#333333]/70">Data:</span>
-            <span>{selectedDate ? formatDatePt(selectedDate) : 'Não selecionada'}</span>
+            <span className="font-medium">{selectedDate ? formatDatePt(selectedDate) : 'Não selecionada'}</span>
           </div>
-          <div className="flex justify-between pb-2">
+          <div className="flex justify-between pb-1">
             <span className="text-[#333333]/70">Hora:</span>
-            <span>{selectedTime || 'Não selecionada'}</span>
+            <span className="font-medium">{selectedTime || 'Não selecionada'}</span>
           </div>
-          <div className="flex justify-between pb-2">
+          <div className="flex justify-between pb-1">
             <span className="text-[#333333]/70">Preço:</span>
-            <span>{selectedService ? formatCurrency(selectedService.price) : '-'}</span>
+            <span className="font-medium">{selectedService ? formatCurrency(selectedService.price) : '-'}</span>
           </div>
         </div>
       </div>
       
       {/* Client Information Form */}
-      <div className="bg-white rounded-xl shadow-sm p-4 mb-4">
-        <h3 className="text-lg mb-3 text-[#7D4F50]">Seus Dados</h3>
-        
+      <div className="p-3 mb-4">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
             <FormField
               control={form.control}
               name="name"
@@ -158,7 +156,7 @@ const AppointmentConfirmation = ({
                   <FormControl>
                     <Input 
                       {...field} 
-                      className="w-full px-4 py-2 border border-[#E8D4C4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7D4F50]/50"
+                      className="w-full px-3 py-1 h-8 text-sm border border-[#E8D4C4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7D4F50]/50"
                     />
                   </FormControl>
                   <FormMessage />
@@ -176,7 +174,7 @@ const AppointmentConfirmation = ({
                     <Input 
                       {...field} 
                       type="email"
-                      className="w-full px-4 py-2 border border-[#E8D4C4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7D4F50]/50"
+                      className="w-full px-3 py-1 h-8 text-sm border border-[#E8D4C4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7D4F50]/50"
                     />
                   </FormControl>
                   <FormMessage />
@@ -194,7 +192,7 @@ const AppointmentConfirmation = ({
                     <div className="flex">
                       <div className="flex-shrink-0 w-20 mr-2">
                         <select 
-                          className="w-full h-full px-2 py-2 border border-[#E8D4C4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7D4F50]/50"
+                          className="w-full h-8 px-2 py-1 text-sm border border-[#E8D4C4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7D4F50]/50"
                           defaultValue="+351"
                         >
                           <option value="+351">+351 🇵🇹</option>
@@ -208,7 +206,7 @@ const AppointmentConfirmation = ({
                       <Input 
                         {...field} 
                         type="tel"
-                        className="w-full px-4 py-2 border border-[#E8D4C4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7D4F50]/50"
+                        className="w-full px-3 py-1 h-8 text-sm border border-[#E8D4C4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7D4F50]/50"
                       />
                     </div>
                   </FormControl>
@@ -226,8 +224,8 @@ const AppointmentConfirmation = ({
                   <FormControl>
                     <Textarea 
                       {...field} 
-                      rows={3}
-                      className="w-full px-4 py-2 border border-[#E8D4C4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7D4F50]/50"
+                      rows={2}
+                      className="w-full px-3 py-1 text-sm border border-[#E8D4C4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7D4F50]/50"
                     />
                   </FormControl>
                   <FormMessage />

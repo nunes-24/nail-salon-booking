@@ -17,7 +17,6 @@ const DateTimeSelection = ({ onDateTimeSelect, onContinue, onBack }: DateTimeSel
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [calendarDays, setCalendarDays] = useState<ReturnType<typeof getCalendarDays>>([]);
   const [availableTimes, setAvailableTimes] = useState<string[]>([]);
-  const [showMonthSelector, setShowMonthSelector] = useState(false);
   
   // Initialize calendar days
   useEffect(() => {
@@ -61,15 +60,6 @@ const DateTimeSelection = ({ onDateTimeSelect, onContinue, onBack }: DateTimeSel
     }
   };
   
-  const toggleMonthSelector = () => {
-    setShowMonthSelector(!showMonthSelector);
-  };
-  
-  const handleMonthSelect = (month: number) => {
-    setCurrentMonth(month);
-    setShowMonthSelector(false);
-  };
-  
   const handleDateSelect = (day: number, disabled: boolean) => {
     if (disabled) return;
     
@@ -105,10 +95,10 @@ const DateTimeSelection = ({ onDateTimeSelect, onContinue, onBack }: DateTimeSel
   
   return (
     <div>
-      <h2 className="text-xl text-[#7D4F50] mb-6 text-center font-semibold">Step 2: Escolha o Dia e Hora</h2>
+      <h2 className="text-xl text-[#7D4F50] mb-4 text-center font-medium">Agenda</h2>
       
       {/* Calendar Section */}
-      <div className="bg-white rounded-xl shadow-sm p-4 mb-6">
+      <div className="p-4 mb-5">
         <div className="flex justify-between items-center mb-4">
           <button 
             onClick={handlePrevMonth}
@@ -118,36 +108,10 @@ const DateTimeSelection = ({ onDateTimeSelect, onContinue, onBack }: DateTimeSel
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-          <div className="flex flex-col items-center relative">
-            <button 
-              className="text-lg text-[#7D4F50] cursor-pointer hover:text-[#7D4F50]/80 flex items-center"
-              onClick={toggleMonthSelector}
-            >
+          <div className="flex items-center justify-center">
+            <span className="text-lg text-[#7D4F50]">
               {ptMonths[currentMonth]}
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                className={`h-4 w-4 ml-1 transition-transform ${showMonthSelector ? 'rotate-180' : ''}`} 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            
-            {showMonthSelector && (
-              <div className="absolute top-full mt-1 z-10 grid grid-cols-4 gap-1 bg-white p-2 rounded-lg shadow-md border border-[#E8D4C4]">
-                {ptMonths.map((month, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleMonthSelect(index)}
-                    className={`text-xs p-1 rounded ${currentMonth === index ? 'bg-[#7D4F50] text-white' : 'hover:bg-[#E8D4C4]/50'}`}
-                  >
-                    {month.slice(0, 3)}
-                  </button>
-                ))}
-              </div>
-            )}
+            </span>
           </div>
           <button 
             onClick={handleNextMonth}
@@ -195,7 +159,7 @@ const DateTimeSelection = ({ onDateTimeSelect, onContinue, onBack }: DateTimeSel
       </div>
       
       {/* Time Slots */}
-      <div className="bg-white rounded-xl shadow-sm p-4 mb-4">
+      <div className="p-4 mb-4">
         <h3 className="text-lg mb-3 text-[#7D4F50]">
           {selectedDate ? 
             `Horários disponíveis ${selectedDate.getDate()} de ${ptMonths[selectedDate.getMonth()]}, ${selectedDate.getFullYear()}` : 
