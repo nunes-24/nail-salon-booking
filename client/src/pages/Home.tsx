@@ -75,7 +75,7 @@ const Home = () => {
               </div>
               
               {/* Bio text after image */}
-              <p className="text-[#333333]/80">
+              <p className="text-[#333333]/50">
                 Ao longo do meu percurso, tenho procurado aprimorar as minhas habilidades de modo a proporcionar o melhor aos meus clientes. Concluí várias formações na área da estética, sendo que tenho uma grande paixão pelo nail design e, especialmente, pela pedicure.
               </p>
             </div>
