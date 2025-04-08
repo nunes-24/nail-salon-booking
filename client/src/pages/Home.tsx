@@ -183,7 +183,7 @@ const Home = () => {
           <div className="p-4">
             <h2 className="text-xl text-[#7D4F50] mb-3 text-center">Localização</h2>
             <p className="text-[#333333]/80 mb-4 text-center">
-              R. Casal do Marco 73c, 2840-732 Arrentela
+              Rua Casal do Marco 73c, 2840-732 Arrentela
             </p>
             {/* Google Maps iframe - satellite view with higher zoom */}
             <div className="w-full h-32 rounded-lg overflow-hidden">
