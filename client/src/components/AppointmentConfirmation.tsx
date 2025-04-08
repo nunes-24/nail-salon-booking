@@ -117,10 +117,10 @@ const AppointmentConfirmation = ({
   
   return (
     <div>
-      <h2 className="text-xl text-[#7D4F50] mb-6 text-center font-semibold">Contacto</h2>
+      <h2 className="text-xl text-[#7D4F50] mb-6 text-center font-semibold">Step 3: Insira os seus dados</h2>
       
       {/* Appointment Summary */}
-      <div className="bg-white rounded-xl shadow-sm border border-[#E8D4C4] p-4 mb-6">
+      <div className="bg-white rounded-xl shadow-sm p-4 mb-6">
         <h3 className="text-lg mb-3 text-[#7D4F50]">Resumo</h3>
         
         <div className="space-y-2">
@@ -144,7 +144,7 @@ const AppointmentConfirmation = ({
       </div>
       
       {/* Client Information Form */}
-      <div className="bg-white rounded-xl shadow-sm border border-[#E8D4C4] p-4 mb-4">
+      <div className="bg-white rounded-xl shadow-sm p-4 mb-4">
         <h3 className="text-lg mb-3 text-[#7D4F50]">Seus Dados</h3>
         
         <Form {...form}>

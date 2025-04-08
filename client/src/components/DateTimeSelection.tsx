@@ -105,10 +105,10 @@ const DateTimeSelection = ({ onDateTimeSelect, onContinue, onBack }: DateTimeSel
   
   return (
     <div>
-      <h2 className="text-xl text-[#7D4F50] mb-6 text-center font-semibold">Agenda</h2>
+      <h2 className="text-xl text-[#7D4F50] mb-6 text-center font-semibold">Step 2: Escolha o Dia e Hora</h2>
       
       {/* Calendar Section */}
-      <div className="bg-white rounded-xl shadow-sm border border-[#E8D4C4] p-4 mb-6">
+      <div className="bg-white rounded-xl shadow-sm p-4 mb-6">
         <div className="flex justify-between items-center mb-4">
           <button 
             onClick={handlePrevMonth}
@@ -195,7 +195,7 @@ const DateTimeSelection = ({ onDateTimeSelect, onContinue, onBack }: DateTimeSel
       </div>
       
       {/* Time Slots */}
-      <div className="bg-white rounded-xl shadow-sm border border-[#E8D4C4] p-4 mb-4">
+      <div className="bg-white rounded-xl shadow-sm p-4 mb-4">
         <h3 className="text-lg mb-3 text-[#7D4F50]">
           {selectedDate ? 
             `Horários disponíveis ${selectedDate.getDate()} de ${ptMonths[selectedDate.getMonth()]}, ${selectedDate.getFullYear()}` : 

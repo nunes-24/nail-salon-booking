@@ -61,14 +61,10 @@ const Home = () => {
         {/* Artist bio box with text and photo inside */}
         <div className="bg-white rounded-xl overflow-hidden shadow-md w-full mb-8">
           <div className="flex flex-col items-center p-6">
-            {/* Bio section with new text */}
+            {/* Image first */}
             <div className="w-full mb-4">
-              <p className="text-[#333333]/80 mb-4">
-                Ao longo do meu percurso, tenho procurado aprimorar as minhas habilidades de modo a proporcionar o melhor aos meus clientes. Concluí várias formações na área da estética, sendo que tenho uma grande paixão pelo nail design e, especialmente, pela pedicure.
-              </p>
-              
               {/* Inner photo box */}
-              <div className="w-full rounded-lg overflow-hidden mt-4 mb-4">
+              <div className="w-full rounded-lg overflow-hidden mb-4">
                 <div className="overflow-hidden h-[200px]">
                   <img 
                     src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
@@ -77,6 +73,11 @@ const Home = () => {
                   />
                 </div>
               </div>
+              
+              {/* Bio text after image */}
+              <p className="text-[#333333]/80">
+                Ao longo do meu percurso, tenho procurado aprimorar as minhas habilidades de modo a proporcionar o melhor aos meus clientes. Concluí várias formações na área da estética, sendo que tenho uma grande paixão pelo nail design e, especialmente, pela pedicure.
+              </p>
             </div>
             
             <div className="flex items-center justify-center w-full">
