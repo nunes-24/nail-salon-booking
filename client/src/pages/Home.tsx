@@ -67,7 +67,7 @@ const Home = () => {
               <div className="w-full rounded-lg overflow-hidden mb-4">
                 <div className="overflow-hidden h-[200px]">
                   <img 
-                    img src="IMG-20250218-WA0004.jpg" 
+                    src="IMG-20250218-WA0004.jpg"
                     alt="Nail artist at work" 
                     className="w-full h-full object-cover"
                   />
