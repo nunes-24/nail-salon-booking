@@ -114,7 +114,7 @@ const Home = () => {
                   1
                 </div>
                 <span className={`text-sm text-center ${currentStep === 1 ? 'text-red-600' : 'text-red-400'}`}>
-                  Serviços
+                  
                 </span>
               </div>
               
